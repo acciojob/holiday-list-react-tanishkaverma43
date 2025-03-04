@@ -31,13 +31,21 @@ const App = () => {
     { name: 'Mussoorie', country: 'India' },
     { name: 'Mount Abu', country: 'India' },
     { name: 'Tirupati', country: 'India' },
-    ]
+    ];
     
+  // Filter only Indian cities
+  const indianCities = cityList.filter(city => city.country === "India");
+
   return (
     <div id="main">
-               {/* Do not remove the main div */}
+      <h2>Holiday Destinations in India</h2>
+      <ol>
+        {indianCities.map((city, index) => (
+          <li key={`location${index + 1}`}>{city.name}</li>
+        ))}
+      </ol>
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
